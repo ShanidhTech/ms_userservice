@@ -21,9 +21,7 @@ def verify_password(plain_password, hashed_password):
 
 # Generate JWT Token
 def create_access_token(data: dict, expires_delta: timedelta = None):
-    print(data, "details of login user")
     to_encode = data.copy()
     expire = datetime.utcnow() + (expires_delta or timedelta(minutes=15))
     to_encode.update({"exp": expire})
-    print(SECRET_KEY, "secret key for login")
     return jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
