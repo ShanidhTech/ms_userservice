@@ -1,0 +1,31 @@
+# Virtual environment
+venv/
+.env
+*.env
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Logs
+logs/
+*.log
+
+# Database and migrations
+instance/
+db.sqlite3
+alembic/versions/*  # Ignore Alembic migration files except __init__.py
+!alembic/versions/__init__.py
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+
+# Docker
+*.dockerignore
+docker-compose.override.yml
+
+# Dependencies
+*.egg-info/
+pip-log.txt
