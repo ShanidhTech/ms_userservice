@@ -58,6 +58,12 @@ async def create_user_type(user_type: UserTypeCreate, db: AsyncSession = Depends
 
     return new_type
 
+@app.get("/users/", response_model=list[UserResponse])
+async def get_users(db: AsyncSession = Depends(get_db)):
+    result = await db.execute(select(User))
+    users = result.scalars().all()
+    return users
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run(app, host="127.0.0.1", port=8003)
